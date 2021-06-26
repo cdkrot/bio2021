@@ -2,9 +2,9 @@
 
 set -e
 
-rm -f tests/*.lzma
+# rm -f tests/*.lzma
 
-for tst in 70-welcome-approx 80-big-approx 90-huge-approx
+for tst in 90-huge-approx  # 70-welcome-approx  80-big-approx
 do
     echo $tst
     
