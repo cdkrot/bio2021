@@ -1,0 +1,15 @@
+Running thinice_brute.optbin
+
+real	32m16.140s
+user	32m15.695s
+sys	0m0.240s
+Running baseline.optbin
+
+real	89m37.948s
+user	89m37.151s
+sys	0m0.268s
+Running baseline-worse.optbin
+
+real	67m19.910s
+user	67m18.140s
+sys	0m0.316s
