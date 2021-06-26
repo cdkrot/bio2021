@@ -43,7 +43,7 @@ int main(int argc, char *argv[]) {
             totalentries += 1;
             entrieshere += 1;
             
-            int a = readInt(prev_end + 1, maxcoord);
+            int a = readInt(max(0, prev_end + 1), maxcoord);
             inf.readChar('-');
             int b = readInt(a + 1, maxcoord);
 
