@@ -89,6 +89,8 @@ def match_score(isoform, query):
     while endptr != len(isoform) and isoform[endptr][0] <= query[-1][1]:
         endptr += 1
 
+    ptr = max(0, ptr - 1)
+    endptr = min(endptr + 1, len(isoform))
     isoform = isoform[ptr:endptr]
     
     seg_coverage = intersection(isoform, query)

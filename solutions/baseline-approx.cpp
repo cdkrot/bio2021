@@ -108,9 +108,16 @@ double get_score(const vector<pair<int, int>>& isoform, const vector<pair<int, i
             ptr = mid;
     }
 
+    ptr = max(0, ptr - 1);
+    
     int endptr = ptr;
     vector<pair<int, int>> iso;
     while (endptr != len(isoform) and isoform[endptr].first <= query[SZ(query) - 1].second) {
+        iso.push_back(isoform[endptr]);
+        endptr += 1;
+    }
+
+    if (endptr != len(isoform)) {
         iso.push_back(isoform[endptr]);
         endptr += 1;
     }
