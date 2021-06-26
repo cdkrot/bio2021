@@ -12,5 +12,5 @@ function make_test() {
     ./util/cleanify.bin </tmp/wip.txt >tests/$1
 }
 
-make_test 20-mouse-simple-exact.txt ONT.exact.FSM.chr7.tsv
+# make_test 20-mouse-simple-exact.txt ONT.exact.FSM.chr7.tsv
 make_test 30-mouse-exact.txt ONT.exact.ISM.chr7.tsv

@@ -151,7 +151,7 @@ int main() {
 
         int total = 0;
         int ans_id = -1;
-        for (int i = 0; i < n; ++i)
+        for (int i = n - 1; i >= 0; --i)
             if (matches(in[i], query))
                 ans_id = i, total += 1;
 

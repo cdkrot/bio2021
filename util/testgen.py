@@ -305,6 +305,17 @@ def gen_evil_base2(num_isoforms):
 
 def testgen_main():
     random.seed(31031999)
+    mouse = TestData()
+    mouse.load('bio/mouse.txt', load_delta=False, load_queries=False)
+    mouse.isoforms = [isoform for isoform in mouse.isoforms if len(isoform) >= 2]
+    generate_test_based_on(mouse, 14478, delta=0,
+                           len_distr_func=lambda cnt: ConstDistribution(cnt),
+                           noise_dist_dist=ConstDistribution(ConstDistribution(0)),
+                           shrink_dist=UniformDistribution(0, 30)
+                           ).save('tests/20-mouse-simple-exact.txt')
+    
+    
+    random.seed(31031999)
     gen_simple(4, 5,
                delta=100,
                start_distr=UniformDistribution(0, 5000),
