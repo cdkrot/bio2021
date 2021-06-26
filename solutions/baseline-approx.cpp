@@ -178,7 +178,7 @@ int main(int argc, char** argv) {
     cerr << std::fixed;
     cerr.precision(7);
     for (int q = START; q < min(Q, START+BLOCK); ++q) {
-        auto query = readline();
+        auto query = queries[q];
                 
         // int i;
         // for (i = 0; i < n and not matches(in[i], query); ++i) {}
@@ -195,7 +195,7 @@ int main(int argc, char** argv) {
         }
 
         cout << ans_id << "\n";
-        cerr << best_score << "\n";
+	cerr << "Progress " << double(q - START) / BLOCK << "\n";
     }
     
 
