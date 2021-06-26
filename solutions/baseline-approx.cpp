@@ -122,7 +122,7 @@ double get_score(const vector<pair<int, int>>& isoform, const vector<pair<int, i
         +  (1.0/3) * (outseg_coverage / (double) total_len(get_dual(query)));
 }
 
-int main() {
+int main(int argc, char** argv) {
     std::iostream::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
@@ -159,9 +159,25 @@ int main() {
 
     int Q = input<int>();
 
+    vector<vector<pair<int, int>>> queries(Q);
+    for (int q = 0; q < Q; ++q)
+        queries[q] = readline();
+
+    int BLOCK, START;
+
+    if (argc == 1)
+        BLOCK = Q, START = 0;
+    else {
+        int cnt = atoi(argv[1]);
+        int id = atoi(argv[2]);
+
+        BLOCK = (Q + cnt - 1) / cnt;
+        START = BLOCK * id;
+    }
+    
     cerr << std::fixed;
     cerr.precision(7);
-    for (int q = 0; q < Q; ++q) {
+    for (int q = START; q < min(Q, START+BLOCK); ++q) {
         auto query = readline();
                 
         // int i;

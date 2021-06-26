@@ -447,10 +447,10 @@ def testgen_main():
     
     #####
 
-    for (n, testname) in [(190000, '80-big-approx'), (450000, '90-huge-approx')]:    
+    for (n, q, testname) in [(190000, 190000, '80-big-approx'), (300000, 600000, '90-huge-approx')]:    
         evil2 = gen_evil_base2(n)
         evil2 = \
-        generate_test_based_on(evil2, n, delta=0, len_distr_func=lambda x: UniformDistribution(3, 4),
+        generate_test_based_on(evil2, q, delta=0, len_distr_func=lambda x: UniformDistribution(3, 4),
                            noise_dist_dist=Distribution().add_const(45, UniformDistribution(-23, +23)) \
                                                          .add_const(30, ConstDistribution(0)) \
                                                          .add_const(35, UniformDistribution(-10, +10)),
@@ -469,7 +469,7 @@ def testgen_main():
                 evil2.queries[que_ind] = evil2.queries[que_ind][:sub_ind] + [(A, hole_st), (hole_st + hole, B)] + \
                     evil2.queries[que_ind][sub_ind+1:]
 
-        longguys = gen_simple(4, n//10,
+        longguys = gen_simple(4, q//10,
                    delta=100,
                    start_distr=UniformDistribution(0, 5000),
                    len_distr=UniformDistribution(int(1e4), int(1e5)),

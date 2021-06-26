@@ -135,7 +135,7 @@ def check(reply_txt):
             if PRINT_SCORE_MODE:
                 print(str(part_score), file=sys.stderr)
             
-            total += min(float(part_score / jury_score), 1.0)
+            total += min(float(part_score / jury_score), 1.0) ** 5
             if part_score < jury_score:
                 num_worse += 1
             elif part_score == jury_score:
