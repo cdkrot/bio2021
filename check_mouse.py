@@ -7,7 +7,7 @@ CONFIG = {
     'use_network': True,
     'url': 'https://stepik.org/media/attachments/lesson/541857/secret.zip',
     'zip_password': 'LMQ8UrFb8fjbSD1AdutA',
-    'test_name': '00-sample'
+    'test_name': '20-mouse-simple-exact'
 }
 
 
@@ -87,7 +87,7 @@ def is_matched(isoform, query, delta):
 
 
 def check(reply_txt):
-    reply = [int(tok) for tok in reply_txt.strip().split('\n')]
+    reply = [int(tok.split()[0]) for tok in reply_txt.strip().split('\n')]
     
     with test_file() as inp, jury_ans_file() as ans:
         n, delta = map(int, inp.readline().split())
@@ -105,7 +105,7 @@ def check(reply_txt):
 
         for i in range(q):
             query = parse_line(inp.readline())
-            jury_reply = int(ans.readline())
+            jury_reply = int(ans.readline().split()[0])
             
             if reply[i] < -1 or reply[i] >= n:
                 return 0.0, "Format error, all numbers should be in range [%d, %d], but on line %d your output is %d" \
@@ -122,6 +122,7 @@ def check(reply_txt):
                     if jerror is None:
                         jerror = ("Please report to us: Jury fail on line %d (proposed answer is %d)" % (i + 1, reply[i]))
                 else:
+                    print(i)
                     fails += 1
 
         if jerror is not None:
