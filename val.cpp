@@ -2,8 +2,8 @@
 #include <string>
 using namespace std;
 
-const int maxn = 6e5;
-const int maxq = 6e5;
+const int maxn = 7e5;
+const int maxq = 7e5;
 const int maxdelta = 100;
 
 const int maxcoord = int(1e9);
